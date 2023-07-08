@@ -25,10 +25,14 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_DB: uploadz
       POSTGRES_PASSWORD: postgres
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
-
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
 
